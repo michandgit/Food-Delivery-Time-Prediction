@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Food Time Prediction
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="box">
+        <form method="post" class="details" action="{{ url_for('prediction') }}">
+            <input type="text" name="distance" placeholder="Enter the Distance">
+            <input type="text" name="age" placeholder="Delivery Person Age">
+            <input type="text" name="rate" placeholder="Delivery Person Ratings">
+
+            <div class="btn">
+                <button>Submit</button>
+            </div>
+
+        </form>
+        <div class="predict">
+            <img src="{{url_for('static', filename='Image/download.jpg')}}" alt="Delivery Boy">
+            <h2>Predicted Time :</h2>
+            <div class="time">{{ prediction_text }}</div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
